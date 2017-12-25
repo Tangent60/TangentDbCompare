@@ -6,38 +6,35 @@ namespace DatabaseCompare.Domain
     /// Summary description for Function.
     /// </summary>
     public class Function : DatabaseObject
-	{
-        string textDefinition;
-	    public Function( string name, int id ) : base( name, id )
-	    {
-	    }
+    {
+        #region Properties
+        public string TextDefinition { get; set; }
+        #endregion
 
-        public override void GatherData( SqlConnection conn )
+        public Function(string name, int id) : base(name, id)
         {
-            base.GatherData( conn );
-            using( SqlCommand command = conn.CreateCommand() )
+        }
+
+        public override void GatherData(SqlConnection conn)
+        {
+            base.GatherData(conn);
+            using (SqlCommand command = conn.CreateCommand())
             {
                 command.CommandText = "select text from syscomments where id=@id";
-                command.Parameters.AddWithValue( "@id", this.Id );
-                using ( SqlDataReader reader = command.ExecuteReader() )
+                command.Parameters.AddWithValue("@id", this.Id);
+                using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    while( reader.Read() )
-                        textDefinition += reader.GetString( 0 ).Trim().ToLower();
+                    while (reader.Read())
+                        TextDefinition += reader.GetString(0).Trim().ToLower();
                 }
             }
         }
 
-        public string TextDefinition
+        protected override bool LocalCompare(DatabaseObject obj)
         {
-            get { return textDefinition; }
-            set { textDefinition = value; }
-        }
-
-        protected override bool LocalCompare( DatabaseObject obj )
-        {
-            if ( obj is Function )
+            if (obj is Function)
                 return this.TextDefinition == ((Function)obj).TextDefinition;
             return false;
         }
-	}
+    }
 }
