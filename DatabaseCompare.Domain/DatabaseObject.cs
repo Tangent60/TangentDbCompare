@@ -1,13 +1,12 @@
-using System;
 using System.Collections;
 using System.Data.SqlClient;
 
 namespace DatabaseCompare.Domain
 {
-	/// <summary>
-	/// Summary description for DatabaseObject.
-	/// </summary>
-	public abstract class DatabaseObject
+    /// <summary>
+    /// Summary description for DatabaseObject.
+    /// </summary>
+    public abstract class DatabaseObject
 	{
 		string name;
         int id;

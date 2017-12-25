@@ -1,12 +1,11 @@
-using System;
 using System.Data.SqlClient;
 
 namespace DatabaseCompare.Domain
 {
-	/// <summary>
-	/// Summary description for StoredProc.
-	/// </summary>
-	public class StoredProc : DatabaseObject
+    /// <summary>
+    /// Summary description for StoredProc.
+    /// </summary>
+    public class StoredProc : DatabaseObject
 	{
         string textDefinition;
 

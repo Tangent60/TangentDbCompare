@@ -10,7 +10,5 @@ namespace DatabaseCompare.Domain
 	    public UserTable( string name, int id ) : base( name, id )
 	    {
 	    }
-
-        
 	}
 }

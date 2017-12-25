@@ -1,13 +1,11 @@
-using System;
-using System.Collections;
 using System.Data.SqlClient;
 
 namespace DatabaseCompare.Domain
 {
-	/// <summary>
-	/// Summary description for View.
-	/// </summary>
-	public class View : DatabaseObject
+    /// <summary>
+    /// Summary description for View.
+    /// </summary>
+    public class View : DatabaseObject
 	{
         private string textDefinition;
         

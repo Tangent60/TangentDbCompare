@@ -1,12 +1,11 @@
-using System;
 using System.Data.SqlClient;
 
 namespace DatabaseCompare.Domain
 {
-	/// <summary>
-	/// Summary description for Function.
-	/// </summary>
-	public class Function : DatabaseObject
+    /// <summary>
+    /// Summary description for Function.
+    /// </summary>
+    public class Function : DatabaseObject
 	{
         string textDefinition;
 	    public Function( string name, int id ) : base( name, id )
